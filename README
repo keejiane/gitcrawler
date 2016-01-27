@@ -1,1 +1,6 @@
-一个还比较简单的Github敏感信息抓取工具，目前只有相当简单的功能，还在不断完善中。
+一个还比较简单的Github敏感信息抓取工具，目前只能简单地实现抓取password泄露的功能，还在不断完善中。
+
+Usage：
+  gitcrawler.py <name>
+eg:
+  gitcrawler.py baidu
