@@ -116,7 +116,9 @@ def getAll():
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="the name you want to search in github. eg:baidu")
 args = parser.parse_args()
-getAll()
+
+if __name__ == '__main__':
+	getAll()
 
 		
 
