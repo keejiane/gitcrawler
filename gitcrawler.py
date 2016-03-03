@@ -65,10 +65,10 @@ def codeFilter(code):
 	#table = soup.find(class_ = "highlight").get_text()
 	afterPwd = []
 	#判断code中是否同时含有参数name及‘password’关键词
-	if isBothExist(str(args.name), 'password', code):
+	if isBothExist(str(args.name), str(args.keyword), code):
 	#判断password字符串后面是否存在密码
-		for i in re.finditer('password', code):
-			for j in code[i.start() + 8:i.start() + 11]:
+		for i in re.finditer(str(args.keyword), code):
+			for j in code[i.start() + len(args.keyword):i.start() + len(args.keyword) + 3]:
 				afterPwd.append(str(j))
 			#print afterPwd
 			if ':' in afterPwd or '=' in afterPwd:
@@ -115,6 +115,7 @@ def getAll():
 
 parser = argparse.ArgumentParser()
 parser.add_argument("name", help="the name you want to search in github. eg:baidu")
+parser.add_argument("keyword", help="the keyword you want to search in github. eg:password")
 args = parser.parse_args()
 
 if __name__ == '__main__':
